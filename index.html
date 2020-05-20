@@ -98,7 +98,7 @@
     padding: 5px;
   }
 
-  h2, h3, h4, h5{
+  h2, h3, h4, h5, h6{
     font-size: 120%;
   }
 
@@ -234,8 +234,8 @@
       --secondary-color:   #2D2D69;
       --font-color: #e1e1ff;
       --bg-color:    #171735;
-      --ca1-color: rgb(109, 109, 170);
-      --ca2-color: rgb(165, 165, 219);
+      --ca1-color: rgb(56, 56, 124);
+      --ca2-color: rgb(151, 151, 207);
       --heading-color: #818cab;
       --fourth-color:      #171735;
       --link-color: #e1e1ff;
@@ -483,8 +483,8 @@
       <ul class="days">  
         <li></li>
         <li></li>
-        <li><span class="abgabe">20</span></li>
-        <li><span class="current">21</span></li>
+        <li><span class="current"><span class="abgabe">20</span></span></li>
+        <li>21</li>
         <li>22</li>  
         <li>23</li>
         <li>24</li>
@@ -522,31 +522,27 @@
       <br>Kreis - Schultag
       <br>
     </h2>
-      <h3>
-        <mark><u> Probleme beim Runterladen?</u></mark>
-        <br>Um eine Datei runterzuladen klick einfach auf den blauen Link, 
-        die Datei wird dadurch im Hintergrund runtergeladen und ist danach im Browser oder im Handyspeicher unter <mark><u>Downloads</u></mark> zu finden. Außerdem sind 
-        alle Dateien entweder Bild, PDF oder Word-Dateien, also gehe sicher dass dein Gerät in der Lage ist diese anzuzeigen. 
-        <div class="mobileShow"> 
-        <br> <img src="Screenshot2.jpg" class="size-half"> <img src="Screenshot1.jpg" class="size-half">
-        </div>
-    </h3>
     <h4>
       <a href="Belehrungen SuS Corona.pdf" download="Belehrungen Corona" style="color: var(--link-color);">Belehrungen Corona</a>
       <br><a href="Informationen zum Wiederbeginn.pdf" download="Informationen zum Wiederbeginn" style="color: var(--link-color);">Informationen zum Wiederbeginn</a>
     </h4>
+    <h3>
+        <mark><u> Probleme beim Runterladen</u></mark>
+        <br>Um eine Datei runterzuladen klick auf den blauen Link, 
+        die Datei wird dadurch runtergeladen und ist danach im Browser oder im Speicher unter <mark><u>Downloads</u></mark> aufzufinden. Außerdem sind 
+        alle Dateien entweder Bild, PDF oder .docx-Dateien, also gehe sicher dass dein Gerät in der Lage ist diese anzuzeigen. 
+        <div class="mobileShow"> 
+        <br> <img src="Screenshot2.jpg" class="size-half"> <img src="Screenshot1.jpg" class="size-half">
+        </div>
+    </h3>
     <h5>
-      <mark><u>Fehlt was? Ist was falsch? </u></mark>
-        <br> 1. Ich versuche neue Aufgaben so schnell wie möglich hier zu archivieren, dies kann jedoch manchmal ein Tag dauern. 
-        <br> 2. Außerdem habe ich die Aufgaben nach Datum sortiert, da einige Lehrer die restliche Woche nach den Osterferien nicht mitzählten,
-         andere hingegen schon, wodurch es sonst zu irreführenden Lücken gekommen wäre, hätte ich mich für eines dieser Wochen-Systeme entschieden.
-          Es kann also sein, dass die betroffenen Aufgaben sich in einer nebenanliegenden "Woche" befinden.
-        <br> 3. Ansonsten schick mir die <u>pdf-Dateien</u> von den Aufgaben 
-        und in welchem <u>Zeitraum</u> sie zu erledigen waren auf WA oder eine E-mail an: "norris.loebnau@gmail.com".
+      <mark><u>Fehlende Aufgaben</u></mark>
+        <br> Ich archiviere alle Aufgaben innerhalb von 24 Stunden. Falls etwas nach 24 Stunden nicht archiviert sein sollte schreib mir einfach eine Nachricht. 
     </h5>
-
-
-
+    <h6>
+      <mark><u>Sonstige Probleme</u></mark>
+      <br> Falls anderweitig Probleme auftreten sollten schreib mir einfach eine Nachricht.
+    </h6>
     <script>
         
       const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
