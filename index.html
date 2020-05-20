@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
     <!-- Schön dass du den Seitenquelltext gefunden hast -->
-    <!-- Für Informatik hat es sich nicht einmal gelohnt eine Spalte anzufangen, weil es da nur für eine Woche Aufgaben gab, es ist jetzt mittlerweile die 7. Woche und anscheinend hat Herr Dowedeit sich doch dazu entschieden Informatik Aufgaben zu schicken -->
     <!-- Die Hälfte der Lehrer scheint es nach einem Monat aufgegeben zu haben, Aufgaben zu schicken-->
     <!-- Machen Lehrer das "Ich-schicke-einfach-eine-Woche-keine-Aufgaben-und-die-Woche-darauf-doch-wieder-um-ihre Hoffnung-dass-ich-es-sein-lasse-zu-zerstören" aus purem Sadismus oder aus Versehen-->  
     <!-- Gruppe 2 > Gruppe 1 -->
@@ -9,17 +8,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>10Gb Aufgaben Archiv</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/main.css">
+    <title>10Gb Aufgaben Archiv</title>
     <style>
+
+
+
+
+
+      body {
+    background-color: var(--bg-color);
+    color: var(--font-color);   
+    }
+
+    .theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.theme-switch {
+  display: inline-block;
+  height: 34px;
+  position: relative;
+  width: 60px;
+}
+
+.theme-switch input {
+  display:none;
+}
+
+.slider {
+  background-color: #ccc;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+}
+
+.slider:before {
+  background-color: #fff;
+  bottom: 4px;
+  content: "";
+  height: 26px;
+  left: 4px;
+  position: absolute;
+  transition: .4s;
+  width: 26px;
+}
+
+input:checked + .slider {
+  background-color: #a4c7ff;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+h0 {
+  margin-left: 5px;
+  font-family:Arial, Helvetica, sans-serif 
+}
+
+
+
       .size-half {
         max-width: 45%;
         max-height: 45%
       }
-    
-      h1 {
-          color: black;
+      body {
           font-family: Arial, Helvetica, sans-serif;
+      }
+      h1 {
           font-size: 300%;
           text-align: center;
       }
@@ -29,36 +100,34 @@
           border: 1px solid black;
           border-collapse: collapse;
           text-align: center;
-          font-size: 100%;
           padding: 5px;
-          font-family: Arial, Helvetica, sans-serif; 
       }
-      h2{
-        font-family: Arial, Helvetica, sans-serif;
+      h2, h3, h4, h5{
         font-size: 120%;
       }
-      h3, h6 {
-          font-family: Arial, Helvetica, sans-serif;
-          font-size: 120%;
+      tr:nth-child(odd) {
+        background-color:var(--secondary-color);
+        }
+      tr:nth-child(even){
+        background-color:var(--fourth-color);
       }
-      h5{
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 120%;
-      }
-      tr:nth-child(odd) {background-color:#ffe7e7;}
       th {
-          background-color: rgb(175, 76, 76);
+          background-color: var(--primary-color);
           color: white;
       }
   
-      * {box-sizing: border-box;}
-  ul {list-style-type: none;}
-  body {font-family: Verdana, sans-serif;}
+      * {
+        box-sizing: border-box;
+        }
+      ul {
+        list-style-type: none;
+        }
+  
   
   .month {
     padding: 5px 25px;
     width: 100%;
-    background:  rgb(175, 76, 76);
+    background:  var(--primary-color);
     text-align: center;
   }
   
@@ -78,19 +147,19 @@
     font-size: 20px; 
     margin: 0;
     padding: 10px 0;
-    background-color: #ddd;
+    background-color: var(--ca1-color);
   }
   
   .weekdays li {
     display: inline-block;
     width: 13.6%;
-    color: black;
+    color: var(--font-color);
     text-align: center;
   }
   
   .days {
     padding: 10px 0;
-    background: #eee;
+    background: var(--ca2-color);
     margin: 0;
   }
   
@@ -99,28 +168,29 @@
     display: inline-block;
     width: 13.6%;
     text-align: center;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     font-size:20px;
     color: black;
   }
   
   .days li .abgabe {
-    padding: 5px;
-    background:  rgb(175, 76, 76);
+    padding: 6px 10px 6px 10px;
+    background:  var(--primary-color);
     color: white !important
-  }
+  } 
 
   .days li .schultag {
-    padding: 5px;
-    background: rgb(76, 83, 175);
+    padding: 6px 10px 6px 10px;
+    background: var(--primary-color);
+    border-radius: 20px;
     color: white !important
   }
   
   .days li .current {
-    padding: 6px;
+    padding: 9px 3px 9px 3px;
     border: 3px;
     border-style:solid;
-    border-color: rgb(175, 76, 76);
+    border-color: var(--primary-color);
   }
   
   @media screen and (max-width:720px) {
@@ -148,11 +218,51 @@
     }
 
   </style>
+
 </head>
 
-<body>
-    <h1>10Gb Corona Aufgaben Archiv</h1>
-    <div style="overflow-x:auto;">
+<body>  
+  
+
+
+  <style> :root {
+    --primary-color: #af4b4b;
+    --secondary-color: #ffe7e7;
+    --tertiary-color: #4b4baf;
+    --font-color: #000000;
+    --bg-color: white;
+    --ca1-color: #ddd;
+    --ca2-color: #eee;
+    --heading-color: #292922;
+    --fourth-color: white;
+    --link-color: #0000EE;
+}
+[data-theme="dark"] {
+    --primary-color:     #2D2D69;
+    --secondary-color:   #2D2D69;
+    --tertiary-color: rgb(51, 180, 39);
+    --font-color: #e1e1ff;
+    --bg-color:    #171735;
+    --ca1-color: rgb(109, 109, 170);
+    --ca2-color: rgb(165, 165, 219);
+    --heading-color: #818cab;
+    --fourth-color:      #171735;
+    --link-color: #e1e1ff;
+    
+}</style>
+<h1>10Gb Corona Aufgaben Archiv</h1>
+<div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider round"></div>
+      </label>
+      <h0>Dark Mode</h0>
+    </div>
+  
+  
+  
+  
+    <div style="overflow-x:auto;"> 
     <table>
         <tr>
             <th></th>
@@ -176,160 +286,160 @@
         </tr>
         <tr> <!-- 1. Woche-->
             <td>16.03.-22.03.</td>
-            <td><a href="10Gb AWT 1.pdf" download="AWT 16.03.-22.03.pdf" >Download</a></td>                      <!-- AWT -->                                                                                                                                                                                
-            <td><a href="Chemie_10Gb_16_03.pdf" download="Chemie 16.03.-22.03.pdf">Download</a></td>                   <!-- Chemie -->
-            <td><a href="Aufgaben Deutsch Klasse 10 Gb.pdf" download="Deutsch Aufgaben.pdf">Download</a></td>    <!-- Deutsch-->
-            <td><a href="EnglischMerge1.pdf" download="Englisch 16.03.-22.03.pdf">Download</a><br><a href="EnglischMerge2Lösungen.pdf" download="Englisch 16.03.-22.03. Lösungen.pdf">Lösungen</a></td> <!-- Englisch-->
-            <td><a href="Französisch 1 2 3.jpg" download="Französisch 16.03.-05.04.jpg">Download</a></td>       <!-- Französisch-->
-            <td><a href="Geografie 1 2 3 Woche.pdf" download="Geografie 16.03.-05.04.pdf">Download</a></td>      <!-- Geografie-->
-            <td><a href="Geschichte 1.pdf" download="Geschichte 16.03.-22.03.pdf">Download</a></td>             <!-- Geschichte -->
-            <td><a href="Ifm1.jpg" download="IfM 16.03.-22.03.jpg">Download</a></td>                            <!-- IfM -->
-            <td><a href="Informatik1.pdf" download="Informatik 16.03.-22.03.pdf">Download</a></td> <!-- Informatik -->
-            <td><a href="Latein 16.-20.03.jpg" download="Latein 16.03.-22.03.jpg">Download</a><br><a href="Übersetzung L7(1).docx" download="Latein 16.03.-22.03. Lösungen.docx">Lösungen</a><br><a href="Tafelbild L7.docx" download="Latein 16.03.-22.03. Tafelbild.docx">Tafelbild</a></td> <!-- Latein -->
-            <td> <a href="Mathe1Merge.pdf" download="Mathe 16.03.-22.03.pdf">Lösungen</a></td>                  <!-- Mathe -->
+            <td><a href="10Gb AWT 1.pdf" download="AWT 16.03.-22.03.pdf" style="color: var(--link-color);">Download</a></td>                      <!-- AWT -->                                                                                                                                                                                
+            <td><a href="Chemie_10Gb_16_03.pdf" download="Chemie 16.03.-22.03.pdf" style="color: var(--link-color);">Download</a></td>                   <!-- Chemie -->
+            <td><a href="Aufgaben Deutsch Klasse 10 Gb.pdf" download="Deutsch Aufgaben.pdf" style="color: var(--link-color);">Download</a></td>    <!-- Deutsch-->
+            <td><a href="EnglischMerge1.pdf" download="Englisch 16.03.-22.03.pdf" style="color: var(--link-color);">Download</a><br><a href="EnglischMerge2Lösungen.pdf" download="Englisch 16.03.-22.03. Lösungen.pdf" style="color: var(--link-color);">Lösungen</a></td> <!-- Englisch-->
+            <td><a href="Französisch 1 2 3.jpg" download="Französisch 16.03.-05.04.jpg" style="color: var(--link-color);">Download</a></td>       <!-- Französisch-->
+            <td><a href="Geografie 1 2 3 Woche.pdf" download="Geografie 16.03.-05.04.pdf" style="color: var(--link-color);">Download</a></td>      <!-- Geografie-->
+            <td><a href="Geschichte 1.pdf" download="Geschichte 16.03.-22.03.pdf" style="color: var(--link-color);">Download</a></td>             <!-- Geschichte -->
+            <td><a href="Ifm1.jpg" download="IfM 16.03.-22.03.jpg" style="color: var(--link-color);">Download</a></td>                            <!-- IfM -->
+            <td><a href="Informatik1.pdf" download="Informatik 16.03.-22.03.pdf" style="color: var(--link-color);">Download</a></td> <!-- Informatik -->
+            <td><a href="Latein 16.-20.03.jpg" download="Latein 16.03.-22.03.jpg" style="color: var(--link-color);">Download</a><br><a href="Übersetzung L7(1).docx" download="Latein 16.03.-22.03. Lösungen.docx" style="color: var(--link-color);">Lösungen</a><br><a href="Tafelbild L7.docx" download="Latein 16.03.-22.03. Tafelbild.docx" style="color: var(--link-color);">Tafelbild</a></td> <!-- Latein -->
+            <td> <a href="Mathe1Merge.pdf" download="Mathe 16.03.-22.03.pdf" style="color: var(--link-color);">Lösungen</a></td>                  <!-- Mathe -->
             <td></td>                                                                                        <!-- Musik -->
             <td></td>                                                                                        <!-- Philosophie -->
-            <td><a href="IMG-20200317-WA0001.jpg" download="Physik 16.03.-22.03.jpg">Download</a></td>          <!-- Physik -->
-            <td> <a href="AB Wäre die Welt besser dran[32].pdf" download="Religion 16.03.-22.03.pdf">Download</a></td> <!-- Religion-->
-            <td><a href="Russich 1 2 3.pdf" download="Russisch 16.03.-05.04.pdf">Download</a></td>              <!-- Russisch-->
-            <td><a href="Sozialkunde12.pdf" download="Sozialkunde 16.03.-29.03.pdf">Download</a></td>           <!-- Sozialkunde-->
+            <td><a href="IMG-20200317-WA0001.jpg" download="Physik 16.03.-22.03.jpg" style="color: var(--link-color);">Download</a></td>          <!-- Physik -->
+            <td> <a href="AB Wäre die Welt besser dran[32].pdf" download="Religion 16.03.-22.03.pdf" style="color: var(--link-color);">Download</a></td> <!-- Religion-->
+            <td><a href="Russich 1 2 3.pdf" download="Russisch 16.03.-05.04.pdf" style="color: var(--link-color);">Download</a></td>              <!-- Russisch-->
+            <td><a href="Sozialkunde12.pdf" download="Sozialkunde 16.03.-29.03.pdf" style="color: var(--link-color);">Download</a></td>           <!-- Sozialkunde-->
         </tr>
         <tr> <!-- 2. Woche-->
             <td>23.03-29.03.</td>
-            <td><a href="10Gb_AWT_2.pdf" download="AWT 23.03.-29.03.pdf">Download</a></td>             <!-- AWT -->  
-            <td><a href="Chemie_10Gb_23_03.pdf" download="Chemie Mindmaps.pdf">Download</a></td>        <!-- Chemie -->
+            <td><a href="10Gb_AWT_2.pdf" download="AWT 23.03.-29.03.pdf" style="color: var(--link-color);">Download</a></td>             <!-- AWT -->  
+            <td><a href="Chemie_10Gb_23_03.pdf" download="Chemie Mindmaps.pdf" style="color: var(--link-color);">Download</a></td>        <!-- Chemie -->
             <td>siehe letzte Woche</td>                                                                 <!-- Deutsch-->
-            <td><a href="Englisch2Merge.pdf" download="Englisch 23.03.-29.03.pdf">Download</a><br><a href="Lösungen Focus on Grammar L1 bis L6 L8.pdf" download="Englisch 23.03.-29.03. Lösungen.pdf">Lösungen</a></td> <!-- Englisch-->
+            <td><a href="Englisch2Merge.pdf" download="Englisch 23.03.-29.03.pdf" style="color: var(--link-color);">Download</a><br><a href="Lösungen Focus on Grammar L1 bis L6 L8.pdf" download="Englisch 23.03.-29.03. Lösungen.pdf" style="color: var(--link-color);">Lösungen</a></td> <!-- Englisch-->
             <td>siehe letzte Woche</td>                                                                 <!-- Französisch-->
             <td>siehe letzte Woche</td>                                                                 <!-- Geografie-->
-            <td><a href="Geschichte2.pdf" download="Geschichte 23.03.-29.03.pdf">Download</a></td>     <!-- Geschichte -->
-            <td><a href="IfM Aufgaben für 26 Maerz und 2 April.pdf" download="IfM 23.03.-05.04.pdf">Download</a></td> <!-- IfM -->
+            <td><a href="Geschichte2.pdf" download="Geschichte 23.03.-29.03.pdf" style="color: var(--link-color);">Download</a></td>     <!-- Geschichte -->
+            <td><a href="IfM Aufgaben für 26 Maerz und 2 April.pdf" download="IfM 23.03.-05.04.pdf" style="color: var(--link-color);">Download</a></td> <!-- IfM -->
             <td> </td> <!-- Informatik -->
-            <td><a href="Latein2.docx" download="Latein 23.03-29.03.docx">Download</a><br><a href="AblativfunktionenTafelbild(1).docx" download="Latein 23.03.-29.03. Tafelbild.docx">Tafelbild</a></td> <!-- Latein -->
-            <td><a href="Mathe2Merge.pdf" download="Mathe 23.03.-29.03.pdf">Lösungen</a></td>          <!-- Mathe -->
-            <td><a href="Jazzstile.pdf" download="Musik 23.03-29.03.pdf">Download</a></td>             <!-- Musik -->
+            <td><a href="Latein2.docx" download="Latein 23.03-29.03.docx" style="color: var(--link-color);">Download</a><br><a href="AblativfunktionenTafelbild(1).docx" download="Latein 23.03.-29.03. Tafelbild.docx" style="color: var(--link-color);">Tafelbild</a></td> <!-- Latein -->
+            <td><a href="Mathe2Merge.pdf" download="Mathe 23.03.-29.03.pdf" style="color: var(--link-color);">Lösungen</a></td>          <!-- Mathe -->
+            <td><a href="Jazzstile.pdf" download="Musik 23.03-29.03.pdf" style="color: var(--link-color);">Download</a></td>             <!-- Musik -->
             <td></td>                                                                               <!-- Philosophie -->
-            <td><a href="Physik2.jpg" download="Physik 23.03.-29.03.jpg">Download</a></td>             <!-- Physik -->
-            <td><a href="Religion2Merge.pdf" download="Religion 23.03.-29.03.pdf">Download</a></td>    <!-- Religion-->
+            <td><a href="Physik2.jpg" download="Physik 23.03.-29.03.jpg" style="color: var(--link-color);">Download</a></td>             <!-- Physik -->
+            <td><a href="Religion2Merge.pdf" download="Religion 23.03.-29.03.pdf" style="color: var(--link-color);">Download</a></td>    <!-- Religion-->
             <td>siehe letzte Woche</td>                                                                 <!-- Russisch-->
             <td>siehe letzte Woche</td>                                                                 <!-- Sozialkunde-->     
         </tr>
         <tr> <!-- 3. Woche-->
             <td>30.03.-05.04.</td>
-            <td><a href="10Gb_AWT_3.pdf" download="AWT 30.03.-05.04.pdf">Download</a><br><a href="10Gb_AWT_4.pdf" download="AWT 30.03.-05.04. Lösungen.pdf">Lösungen</a></td> <!-- AWT -->  
+            <td><a href="10Gb_AWT_3.pdf" download="AWT 30.03.-05.04.pdf" style="color: var(--link-color);">Download</a><br><a href="10Gb_AWT_4.pdf" download="AWT 30.03.-05.04. Lösungen.pdf" style="color: var(--link-color);">Lösungen</a></td> <!-- AWT -->  
             <td>siehe letzte Woche</td>                                                                 <!-- Chemie -->
             <td>siehe vorletzte Woche</td>                                                                 <!-- Deutsch-->
-            <td><a href="Englisch3Merge.pdf" download="Englisch 30.03.-05.04.pdf">Download</a></td>    <!-- Englisch-->
+            <td><a href="Englisch3Merge.pdf" download="Englisch 30.03.-05.04.pdf" style="color: var(--link-color);">Download</a></td>    <!-- Englisch-->
             <td>siehe vorletzte Woche</td>                                                                 <!-- Französisch-->
             <td>siehe vorletzte Woche</td>                                                                 <!-- Geografie-->
-            <td><a href="Geschichte3.pdf" download="Geschichte 30.03.-05.04.pdf">Download</a></td>     <!-- Geschichte -->
-            <td><a href="IfM Aufgaben für 26 Maerz und 2 April.pdf" download="IfM 23.03.-05.04.pdf">Download</a></td> <!-- IfM -->
+            <td><a href="Geschichte3.pdf" download="Geschichte 30.03.-05.04.pdf" style="color: var(--link-color);">Download</a></td>     <!-- Geschichte -->
+            <td><a href="IfM Aufgaben für 26 Maerz und 2 April.pdf" download="IfM 23.03.-05.04.pdf" style="color: var(--link-color);">Download</a></td> <!-- IfM -->
             <td> </td> <!-- Informatik -->
-            <td><a href="Latein 3.docx" download="Latein 30.03.-05.04.docx">Download&Tafelbild</a><br><a href="Latein3LösungenTafelbild.docx" download="Latein 30.03.-05.04. Lösungen Tafelbild.docx">Lösungen&Tafelbild</a></td> <!-- Latein -->
-            <td> <a href="IMG-20200327-WA0001.jpg" download="Mathe 30.03.-05.04.jpg">Lösungen</a></td> <!-- Mathe -->
-            <td><a href="Musik Cool Jazz.pdf" download="Musik 30.03.-05.04.pdf">Download</a></td>      <!-- Musik -->
-            <td><a href="Philosophie3Merge.pdf" download="Philosphie 30.03.-05.04.pdf">Download</td>   <!-- Philosophie -->
-            <td><a href="Physik3.jpg" download="Physik 30.03.-05.04.jpg">Download</a></td>             <!-- Physik -->
-            <td><a href="EschG.pdf" download="Religion 30.03.-05.04.pdf">Download</a></td>             <!-- Religion-->
+            <td><a href="Latein 3.docx" download="Latein 30.03.-05.04.docx" style="color: var(--link-color);">Download&Tafelbild</a><br><a href="Latein3LösungenTafelbild.docx" download="Latein 30.03.-05.04. Lösungen Tafelbild.docx" style="color: var(--link-color);">Lösungen&Tafelbild</a></td> <!-- Latein -->
+            <td> <a href="IMG-20200327-WA0001.jpg" download="Mathe 30.03.-05.04.jpg" style="color: var(--link-color);">Lösungen</a></td> <!-- Mathe -->
+            <td><a href="Musik Cool Jazz.pdf" download="Musik 30.03.-05.04.pdf" style="color: var(--link-color);">Download</a></td>      <!-- Musik -->
+            <td><a href="Philosophie3Merge.pdf" download="Philosphie 30.03.-05.04.pdf" style="color: var(--link-color);">Download</td>   <!-- Philosophie -->
+            <td><a href="Physik3.jpg" download="Physik 30.03.-05.04.jpg" style="color: var(--link-color);">Download</a></td>             <!-- Physik -->
+            <td><a href="EschG.pdf" download="Religion 30.03.-05.04.pdf" style="color: var(--link-color);">Download</a></td>             <!-- Religion-->
             <td>siehe vorletzte Woche</td>                                                                 <!-- Russisch-->
-            <td><a href="Sozialkunde3.pdf" download="Sozialkunde 30.03.-05.04.pdf">Download</a></td>   <!-- Sozialkunde-->       
+            <td><a href="Sozialkunde3.pdf" download="Sozialkunde 30.03.-05.04.pdf" style="color: var(--link-color);">Download</a></td>   <!-- Sozialkunde-->       
         </tr>
         <tr> <!-- 4. Woche-->
             <td>16.04.-26.04.</td>
-            <td><a href="10Gb_AWT_5.pdf" download="AWT 16.04.-26.04.pdf">Download&Tafelbild</a></td>   <!-- AWT -->  
-            <td><a href="Chemie_10Gb_30_03.pdf" download="Chemie Probeklausur.pdf">Download</a></td>    <!-- Chemie -->
+            <td><a href="10Gb_AWT_5.pdf" download="AWT 16.04.-26.04.pdf" style="color: var(--link-color);">Download&Tafelbild</a></td>   <!-- AWT -->  
+            <td><a href="Chemie_10Gb_30_03.pdf" download="Chemie Probeklausur.pdf" style="color: var(--link-color);">Download</a></td>    <!-- Chemie -->
             <td>siehe vorvorletzte Woche</td>                                                                 <!-- Deutsch-->
-            <td><a href="Englisch4Merge.pdf" download="Englisch 16.04.-26.04.pdf">Download</a></td>    <!-- Englisch-->
-            <td><a href="Französisch 4.jpg" download="Französisch 16.04.-26.04.jpg">Download</a></td>  <!-- Französisch-->
-            <td><a href="Geografie 4 Woche.pdf" download="Geografie 16.04.-26.04.pdf">Download</a></td><!-- Geografie-->
+            <td><a href="Englisch4Merge.pdf" download="Englisch 16.04.-26.04.pdf" style="color: var(--link-color);">Download</a></td>    <!-- Englisch-->
+            <td><a href="Französisch 4.jpg" download="Französisch 16.04.-26.04.jpg" style="color: var(--link-color);">Download</a></td>  <!-- Französisch-->
+            <td><a href="Geografie 4 Woche.pdf" download="Geografie 16.04.-26.04.pdf" style="color: var(--link-color);">Download</a></td><!-- Geografie-->
             <td>Test</td>                                                                           <!-- Geschichte -->
-            <td><a href="Ifm Aufgaben 17 April.pdf" download="Ifm 16.04.-26.04.pdf">Download</a></td>  <!-- IfM -->
+            <td><a href="Ifm Aufgaben 17 April.pdf" download="Ifm 16.04.-26.04.pdf" style="color: var(--link-color);">Download</a></td>  <!-- IfM -->
             <td> </td> <!-- Informatik -->
-            <td><a href="Latein4.docx" download="Latein 16.04.-26.04.docx">Download</a></td>            <!-- Latein -->
-            <td><a href="Mathe4Merge.pdf" download="Mathe 16.04.-26.04.pdf">Lösungen</a></td>          <!-- Mathe -->
+            <td><a href="Latein4.docx" download="Latein 16.04.-26.04.docx" style="color: var(--link-color);">Download</a></td>            <!-- Latein -->
+            <td><a href="Mathe4Merge.pdf" download="Mathe 16.04.-26.04.pdf" style="color: var(--link-color);">Lösungen</a></td>          <!-- Mathe -->
             <td>siehe letzte Woche</td>                                                                 <!-- Musik -->
-            <td><a href="1587640796660_Darf der Mensch alles was er kann.pdf" download="Philosophie 16.04.-26.04.pdf">Download</a></td> <!-- Philosophie -->
-            <td><a href="Physik4.jpg" download="Physik 16.04.-26.04.jpg">Download</a></td>             <!-- Physik -->
-            <td><a href="Religion4Merge.pdf" download="Religion 16.04.-26.04.pdf">Download</a></td>    <!-- Religion-->
-            <td><a href="Russich 4 Woche.jpg" download="Russisch 16.04.-26.04.jpg">Download</a> <br> <b> (Abgabe bei Schulbeginn)</b></td> <!-- Russisch-->
+            <td><a href="1587640796660_Darf der Mensch alles was er kann.pdf" download="Philosophie 16.04.-26.04.pdf" style="color: var(--link-color);">Download</a></td> <!-- Philosophie -->
+            <td><a href="Physik4.jpg" download="Physik 16.04.-26.04.jpg" style="color: var(--link-color);">Download</a></td>             <!-- Physik -->
+            <td><a href="Religion4Merge.pdf" download="Religion 16.04.-26.04.pdf" style="color: var(--link-color);">Download</a></td>    <!-- Religion-->
+            <td><a href="Russich 4 Woche.jpg" download="Russisch 16.04.-26.04.jpg" style="color: var(--link-color);">Download</a> <br> <b> (Abgabe bei Schulbeginn)</b></td> <!-- Russisch-->
             <td>Test</td>                                                                           <!-- Sozialkunde-->       
         </tr>
         <tr> <!-- 5. Woche-->
             <td>27.04.-03.05.</td>
             <td></td>                                                                                                               <!-- AWT -->  
-            <td><a href="Chemie_10Gb_27_04.pdf" download="Chemie 27.04.-03.05.pdf">Download</a><br><a href="Chemie5.pdf" download="Chemie 27.04.-03.05. Lösungen.pdf">Lösungen</a></td>   <!-- Chemie -->
-            <td><a href="Übungen Konjunktiv I.pdf" download="Deutsch 27.04.-03.05.pdf">Download</a><br><a href="Lösungen Konjunktivübung.pdf" download="Deutsch 27.04.-03.05. Lösungen.pdf">Lösungen</a></td>                               <!-- Deutsch-->
-            <td><a href="Englisch5Merge.pdf" download="Englisch 27.04.-03.05.pdf">Download</a></td>                                    <!-- Englisch-->
+            <td><a href="Chemie_10Gb_27_04.pdf" download="Chemie 27.04.-03.05.pdf" style="color: var(--link-color);">Download</a><br><a href="Chemie5.pdf" download="Chemie 27.04.-03.05. Lösungen.pdf" style="color: var(--link-color);">Lösungen</a></td>   <!-- Chemie -->
+            <td><a href="Übungen Konjunktiv I.pdf" download="Deutsch 27.04.-03.05.pdf" style="color: var(--link-color);">Download</a><br><a href="Lösungen Konjunktivübung.pdf" download="Deutsch 27.04.-03.05. Lösungen.pdf" style="color: var(--link-color);">Lösungen</a></td>                               <!-- Deutsch-->
+            <td><a href="Englisch5Merge.pdf" download="Englisch 27.04.-03.05.pdf" style="color: var(--link-color);">Download</a></td>                                    <!-- Englisch-->
             <td></td>                                                                                                               <!-- Französisch-->
             <td></td>                                                                                                               <!-- Geografie-->
             <td></td>                                                                                                               <!-- Geschichte -->
-            <td><a href="Ifm5Merge.pdf" download="Ifm 27.04.-03.05.pdf">Download</a><br>(Abgabe 06.05.)</td>            <!-- IfM -->
+            <td><a href="Ifm5Merge.pdf" download="Ifm 27.04.-03.05.pdf" style="color: var(--link-color);">Download</a><br>(Abgabe 06.05.)</td>            <!-- IfM -->
             <td> </td> <!-- Informatik -->
-            <td><a href="Aufgaben 27.-30.4..pdf" download="Latein 27.04.-03.05.pdf">Download&Tafelbild</a><br><a href="Lektion 8 Text 1 Lösungen.docx" download="Latein 27.04.-03.05. Lösungen.docx">Lösungen</a></td>                        <!-- Latein -->
-            <td><a href="Mathe5AufgabenMerge.pdf" download="Mathe 27.04.-03.05.pdf">Download</a><br><a href="Mathe5LösungenkompletterMerge.pdf" download="Mathe 27.04.-03.05. Lösungen.pdf">Lösungen</a></td> <!-- Mathe -->
-            <td><a href="10Gb Musik 3.pdf" download="Musik 27.04.-03.05.pdf">Download</a> <br> (Abgabe 08.05.)</td>         <!-- Musik -->
+            <td><a href="Aufgaben 27.-30.4..pdf" download="Latein 27.04.-03.05.pdf" style="color: var(--link-color);">Download&Tafelbild</a><br><a href="Lektion 8 Text 1 Lösungen.docx" download="Latein 27.04.-03.05. Lösungen.docx" style="color: var(--link-color);">Lösungen</a></td>                        <!-- Latein -->
+            <td><a href="Mathe5AufgabenMerge.pdf" download="Mathe 27.04.-03.05.pdf" style="color: var(--link-color);">Download</a><br><a href="Mathe5LösungenkompletterMerge.pdf" download="Mathe 27.04.-03.05. Lösungen.pdf" style="color: var(--link-color);">Lösungen</a></td> <!-- Mathe -->
+            <td><a href="10Gb Musik 3.pdf" download="Musik 27.04.-03.05.pdf" style="color: var(--link-color);">Download</a> <br> (Abgabe 08.05.)</td>         <!-- Musik -->
             <td></td>                                                                                                               <!-- Philosophie -->
-            <td><a href="Physik5.jpg" download="Physik 27.04.-03.05.jpg">Download</a> <br>(Abgabe  04.05)</td>            <!-- Physik -->
-            <td><a href="Religion5Merge.pdf" download="Religion 27.04.-03-05.pdf">Download</a><br>(Abgabe 03.05.)</td>     <!-- Religion-->
-            <td><a href="Russisch 5.jpg" download="Russisch 27.04.-03.05.jpg">Download</a></td>                                        <!-- Russisch-->
+            <td><a href="Physik5.jpg" download="Physik 27.04.-03.05.jpg" style="color: var(--link-color);">Download</a> <br>(Abgabe  04.05)</td>            <!-- Physik -->
+            <td><a href="Religion5Merge.pdf" download="Religion 27.04.-03-05.pdf" style="color: var(--link-color);">Download</a><br>(Abgabe 03.05.)</td>     <!-- Religion-->
+            <td><a href="Russisch 5.jpg" download="Russisch 27.04.-03.05.jpg" style="color: var(--link-color);">Download</a></td>                                        <!-- Russisch-->
             <td></td>                                                                                                               <!-- Sozialkunde-->
         </tr>
         <tr> <!-- 6. Woche-->
           <td>04.05.-10.05.</td>
-          <td><a href="10Gb_AWT_7.pdf" download="AWT 04.05.-10.05.pdf">Download&Tafelbild</a><br><a href="Lösungen7AWT.pdf" download="AWT 04.05.-10.05. Lösungen.pdf">Lösungen</a></td><!-- AWT --> 
-          <td><a href="Chemie5.pdf" download="Chemie 04.05.-10.05.pdf">Download</a></td><!-- Chemie -->
+          <td><a href="10Gb_AWT_7.pdf" download="AWT 04.05.-10.05.pdf" style="color: var(--link-color);">Download&Tafelbild</a><br><a href="Lösungen7AWT.pdf" download="AWT 04.05.-10.05. Lösungen.pdf" style="color: var(--link-color);">Lösungen</a></td><!-- AWT --> 
+          <td><a href="Chemie5.pdf" download="Chemie 04.05.-10.05.pdf" style="color: var(--link-color);">Download</a></td><!-- Chemie -->
           <td></td><!-- Deutsch-->
-          <td><a href="Englisch6.pdf" download="Englisch 04.05.-10.05.pdf">Download</a></td><!-- Englisch-->
+          <td><a href="Englisch6.pdf" download="Englisch 04.05.-10.05.pdf" style="color: var(--link-color);">Download</a></td><!-- Englisch-->
           <td></td><!-- Französisch-->
           <td></td><!-- Geografie-->
-          <td><a href="Geschichte8.pdf" download="Geschichte 03.05.-15.05.pdf">Download</a></td><!-- Geschichte -->
+          <td><a href="Geschichte8.pdf" download="Geschichte 03.05.-15.05.pdf" style="color: var(--link-color);">Download</a></td><!-- Geschichte -->
           <td></td><!-- IfM -->
-          <td><a href="Informatik6.pdf" download="Informatik 04.05.-10.05.pdf">Download</a></td> <!-- Informatik -->
-          <td><a href="Latein6.docx" download="Latein 04.05.-10.05.docx">Download&Tafelbild</a><br>(Abgabe 11.05.)<br><a href="Lektion 8 Text 1 Lösungen.docx" download="Latein 04.05.-10.05. Lösungen.docx">Lösungen</a></td><!-- Latein -->
-          <td><a href="Mathe6.pdf" download="Mathe 04.05.-10.05.pdf">Download</a><br><a href="Mathe6Lösungen.pdf" download="Mathe 04.05.-10.05. Lösungen.pdf ">Lösungen</a></td><!-- Mathe -->
+          <td><a href="Informatik6.pdf" download="Informatik 04.05.-10.05.pdf" style="color: var(--link-color);">Download</a></td> <!-- Informatik -->
+          <td><a href="Latein6.docx" download="Latein 04.05.-10.05.docx" style="color: var(--link-color);">Download&Tafelbild</a><br>(Abgabe 11.05.)<br><a href="Lektion 8 Text 1 Lösungen.docx" download="Latein 04.05.-10.05. Lösungen.docx" style="color: var(--link-color);">Lösungen</a></td><!-- Latein -->
+          <td><a href="Mathe6.pdf" download="Mathe 04.05.-10.05.pdf" style="color: var(--link-color);">Download</a><br><a href="Mathe6Lösungen.pdf" download="Mathe 04.05.-10.05. Lösungen.pdf " style="color: var(--link-color);">Lösungen</a></td><!-- Mathe -->
           <td></td><!-- Musik -->
           <td></td><!-- Philosophie -->
-          <td><a href="Physik52.jpg" download="Physik 04.05.-10.05.jpg">Download</a> (freiwillige Abgabe)</td><!-- Physik -->
+          <td><a href="Physik52.jpg" download="Physik 04.05.-10.05.jpg" style="color: var(--link-color);">Download</a> (freiwillige Abgabe)</td><!-- Physik -->
           <td></td><!-- Religion-->
-          <td><a href="Russisch6.docx" download="Russisch 04.05.-10.05.docx">Download</a></td><!-- Russisch-->
-          <td><a href="Sozialkunde7.pdf" download="Sozialkunde 04.05.-10.05.pdf">Download</a></td><!-- Sozialkunde-->
+          <td><a href="Russisch6.docx" download="Russisch 04.05.-10.05.docx" style="color: var(--link-color);">Download</a></td><!-- Russisch-->
+          <td><a href="Sozialkunde7.pdf" download="Sozialkunde 04.05.-10.05.pdf" style="color: var(--link-color);">Download</a></td><!-- Sozialkunde-->
         </tr>
         <tr> <!-- 7. Woche-->
           <td>11.05.-17.05.</td>
           <td></td><!-- AWT --> 
-          <td><a href="Chemie_10Gb_11_05.pdf" download="Chemie 11.05.-17.05.pdf">Download</a><br><a href="LösungenChemie7.pdf" download="Chemie 11.05.-17.05. Lösungen.pdf">Lösungen</a></td><!-- Chemie -->
-          <td><a href="neue_Aufgaben_Gretchentragödie (Strasse - Abend).pdf" download="Deutsch 11.05.-17.05.pdf">Download</a></td><!-- Deutsch-->
-          <td><a href="Englisch7.pdf" download="Englisch 11.05.-17.05.pdf">Download</a></td><!-- Englisch-->
+          <td><a href="Chemie_10Gb_11_05.pdf" download="Chemie 11.05.-17.05.pdf" style="color: var(--link-color);">Download</a><br><a href="LösungenChemie7.pdf" download="Chemie 11.05.-17.05. Lösungen.pdf" style="color: var(--link-color);">Lösungen</a></td><!-- Chemie -->
+          <td><a href="neue_Aufgaben_Gretchentragödie (Strasse - Abend).pdf" download="Deutsch 11.05.-17.05.pdf" style="color: var(--link-color);">Download</a></td><!-- Deutsch-->
+          <td><a href="Englisch7.pdf" download="Englisch 11.05.-17.05.pdf" style="color: var(--link-color);">Download</a></td><!-- Englisch-->
           <td></td><!-- Französisch-->
           <td></td><!-- Geografie-->
           <td>siehe letzte Woche</td><!-- Geschichte -->
           <td></td><!-- IfM -->
-          <td><a href="Informatik7und8.pdf" download="Informatik 11.05.-22.05.pdf">Download</a></td> <!-- Informatik -->
-          <td><a href="Latein 11.-15.5.20.docx" download="Latein 11.05.-17.05.docx">Download&Tafelbild</a><br>(Abgabe 18.05)<br><a href="Lektion 8 Text 2.docx" download="Latein 11.05.-17.05. Lösungen.docx">Lösungen</a></td><!-- Latein -->
+          <td><a href="Informatik7und8.pdf" download="Informatik 11.05.-22.05.pdf" style="color: var(--link-color);">Download</a></td> <!-- Informatik -->
+          <td><a href="Latein 11.-15.5.20.docx" download="Latein 11.05.-17.05.docx" style="color: var(--link-color);">Download&Tafelbild</a><br>(Abgabe 18.05)<br><a href="Lektion 8 Text 2.docx" download="Latein 11.05.-17.05. Lösungen.docx" style="color: var(--link-color);">Lösungen</a></td><!-- Latein -->
           <td></td><!-- Mathe -->
-          <td><a href="Musik7.pdf" download="Musik 11.05.-17.05.pdf">Download</a><br>"Bearbeitung bis zum 05.06."</td><!-- Musik -->
+          <td><a href="Musik7.pdf" download="Musik 11.05.-17.05.pdf" style="color: var(--link-color);">Download</a><br>"Bearbeitung bis zum 05.06."</td><!-- Musik -->
           <td></td><!-- Philosophie -->
-          <td><a href="Physik7.jpg" download="Physik 11.05.-17.05.jpg">Download</a><br>(freiwillige Abgabe)</td><!-- Physik -->
+          <td><a href="Physik7.jpg" download="Physik 11.05.-17.05.jpg" style="color: var(--link-color);">Download</a><br>(freiwillige Abgabe)</td><!-- Physik -->
           <td></td><!-- Religion-->
           <td></td><!-- Russisch-->
-          <td><a href="Sozialkunde8.pdf" download="Sozialkunde 11.05.-17.05.pdf">Download</a></td><!-- Sozialkunde-->
+          <td><a href="Sozialkunde8.pdf" download="Sozialkunde 11.05.-17.05.pdf" style="color: var(--link-color);">Download</a></td><!-- Sozialkunde-->
         </tr>
         <tr> <!-- 8. Woche-->
           <td>18.05.-24.05.</td>
-          <td><a href="AWT8.pdf" download="AWT 18.05.-24.05.pdf">Download&Tafelbild</a></td><!-- AWT --> 
-          <td><a href="Chemie8.pdf" download="Chemie 18.05.-24.05.pdf">Download</a><br><b>(Abgabe bis zum 20.05!)</b></td><!-- Chemie -->
+          <td><a href="AWT8.pdf" download="AWT 18.05.-24.05.pdf" style="color: var(--link-color);">Download&Tafelbild</a></td><!-- AWT --> 
+          <td><a href="Chemie8.pdf" download="Chemie 18.05.-24.05.pdf" style="color: var(--link-color);">Download</a><br><b>(Abgabe bis zum 20.05!)</b></td><!-- Chemie -->
           <td></td><!-- Deutsch-->
-          <td><a href="KV 5 Checklist- writing a summary bearbeitet.pdf" download="Englisch 18.05.-24.05.pdf">Download</a></td><!-- Englisch-->
+          <td><a href="KV 5 Checklist- writing a summary bearbeitet.pdf" download="Englisch 18.05.-24.05.pdf" style="color: var(--link-color);">Download</a></td><!-- Englisch-->
           <td></td><!-- Französisch-->
           <td></td><!-- Geografie-->
           <td></td><!-- Geschichte -->
           <td></td><!-- IfM -->
           <td>siehe letzte Woche</td> <!-- Informatik -->
-          <td><a href="18.-20.5.20.docx" download="Latein 18.05.-24.05.docx">Download</a></td><!-- Latein -->
+          <td><a href="18.-20.5.20.docx" download="Latein 18.05.-24.05.docx" style="color: var(--link-color);">Download</a></td><!-- Latein -->
           <td></td><!-- Mathe -->
           <td></td><!-- Musik -->
           <td></td><!-- Philosophie -->
-          <td><a href="Physik8.jpg" download="Physik 18.05.-24.05.jpg">Download</a><br>(freiwillige Abgabe)</td><!-- Physik -->
+          <td><a href="Physik8.jpg" download="Physik 18.05.-24.05.jpg" style="color: var(--link-color);">Download</a><br>(freiwillige Abgabe)</td><!-- Physik -->
           <td></td><!-- Religion-->
           <td></td><!-- Russisch-->
           <td></td><!-- Sozialkunde-->
@@ -345,7 +455,7 @@
           <td></td><!-- Geschichte -->
           <td></td><!-- IfM -->
           <td> </td> <!-- Informatik -->
-          <td><a href="Latein8Woche.pdf" download="Latein 25.05.-31.05.pdf">Download</a></td><!-- Latein -->
+          <td><a href="Latein8Woche.pdf" download="Latein 25.05.-31.05.pdf" style="color: var(--link-color);">Download</a></td><!-- Latein -->
           <td></td><!-- Mathe -->
           <td></td><!-- Musik -->
           <td></td><!-- Philosophie -->
@@ -356,12 +466,12 @@
         </tr>
 
     </table>
-    <!-- <a href="" download="">Download</a>-->
+    <!-- <a href="" download="" style="color: var(--link-color);">Download</a>-->
     </div>
     <div class="month">      
         <ul>
           <li>
-           Mai 
+           Mai/Juni 
           </li>
         </ul>
       </div>
@@ -380,30 +490,9 @@
       <ul class="days">  
         <li></li>
         <li></li>
-        <li></li>
-        <li></li>
-        <li>1</li>  
-        <li>2</li>
-        <li><span class="abgabe">3</span></li>
-        <li><span class="abgabe">4</span></li>
-        <li>5</li>
-        <li><span class="abgabe">6</span></li>
-        <li>7</li>
-        <li><span class="abgabe">8</span></li>
-        <li>9</li>
-        <li>10</li>
-        <li><span class="abgabe">11</span></li>
-        <li>12</li>
-        <li>13</li>
-        <li>14</li>
-        <li>15</li>
-        <li>16</li>
-        <li>17</li>
-        <li><span class="abgabe">18</span></li>
-        <li><span class="schultag">19</span></li>
         <li><span class="current"><span class="abgabe">20</span></span></li>
         <li>21</li>
-        <li>22</li>
+        <li>22</li>  
         <li>23</li>
         <li>24</li>
         <li>25</li>
@@ -413,13 +502,34 @@
         <li>29</li>
         <li>30</li>
         <li>31</li>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+        <li>11</li>
+        <li>12</li>
+        <li>13</li>
+        <li>14</li>
+        <li>15</li>
+        <li>16</li>
+        <li>17</li>
+        <li>18</li>
+        <li>19</li>
+        <li></li>
+        <li></li>
       </ul>
-    <h5>
-          Rot - Abgabetage
-      <br>Blau - Schultage
+    <h2>
+          Rechteck - Abgabetag
+      <br>Kreis - Schultag
       <br>
-    </h5>
-      <h2>
+    </h2>
+      <h3>
         <mark><u> Probleme beim Runterladen?</u></mark>
         <br>Um eine Datei runterzuladen klick einfach auf den blauen Link, 
         die Datei wird dadurch im Hintergrund runtergeladen und ist danach im Browser oder im Handyspeicher unter <mark><u>Downloads</u></mark> zu finden. Außerdem sind 
@@ -427,12 +537,12 @@
         <div class="mobileShow"> 
         <br> <img src="Screenshot2.jpg" class="size-half"> <img src="Screenshot1.jpg" class="size-half">
         </div>
-    </h2>
-    <h6>
-      <a href="Belehrungen SuS Corona.pdf" download="Belehrungen Corona">Belehrungen Corona</a>
-      <br><a href="Informationen zum Wiederbeginn.pdf" download="Informationen zum Wiederbeginn">Informationen zum Wiederbeginn</a>
-    </h6>
-    <h3>
+    </h3>
+    <h4>
+      <a href="Belehrungen SuS Corona.pdf" download="Belehrungen Corona" style="color: var(--link-color);">Belehrungen Corona</a>
+      <br><a href="Informationen zum Wiederbeginn.pdf" download="Informationen zum Wiederbeginn" style="color: var(--link-color);">Informationen zum Wiederbeginn</a>
+    </h4>
+    <h5>
       <mark><u>Fehlt was? Ist was falsch? </u></mark>
         <br> 1. Ich versuche neue Aufgaben so schnell wie möglich hier zu archivieren, dies kann jedoch manchmal ein Tag dauern. 
         <br> 2. Außerdem habe ich die Aufgaben nach Datum sortiert, da einige Lehrer die restliche Woche nach den Osterferien nicht mitzählten,
@@ -440,7 +550,51 @@
           Es kann also sein, dass die betroffenen Aufgaben sich in einer nebenanliegenden "Woche" befinden.
         <br> 3. Ansonsten schick mir die <u>pdf-Dateien</u> von den Aufgaben 
         und in welchem <u>Zeitraum</u> sie zu erledigen waren auf WA oder eine E-mail an: "norris.loebnau@gmail.com".
-    </h3>
+    </h5>
+
+
+
+    <script>
+        
+      const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+      
+      function switchTheme(e) {
+          if (e.target.checked) {
+              document.documentElement.setAttribute('data-theme', 'dark');
+          }
+          else {
+              document.documentElement.setAttribute('data-theme', 'light');
+          }    
+      }
+      
+      toggleSwitch.addEventListener('change', switchTheme, false);
+      
+      function switchTheme(e) {
+          if (e.target.checked) {
+              document.documentElement.setAttribute('data-theme', 'dark');
+              localStorage.setItem('theme', 'dark'); //add this
+          }
+          else {
+              document.documentElement.setAttribute('data-theme', 'light');
+              localStorage.setItem('theme', 'light'); //add this
+          }    
+      }
+      
+      
+      const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
+      
+      if (currentTheme) {
+          document.documentElement.setAttribute('data-theme', currentTheme);
+      
+          if (currentTheme === 'dark') {
+              toggleSwitch.checked = true;
+          }
+      }
+      
+      
+      
+      
+          </script>
 </body>
 
 </html>
